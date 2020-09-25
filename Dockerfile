@@ -9,4 +9,4 @@ EXPOSE 80 9080 9448 9443 9060
 COPY --chown=1001:0 app.jar /config/apps/
 COPY --chown=1001:0 server.xml /config/
 
-RUN configure.sh"]
+RUN configure.sh
