@@ -24,7 +24,7 @@
     <!-- tag::httpport[] -->
     <httpEndpoint id="defaultHttpEndpoint"
 				  host="*"
-                  httpPort="9090"
+                  httpPort="8080"
                   httpsPort="9443" />
     <!-- end::httpport[] -->
 	
