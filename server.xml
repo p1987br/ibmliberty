@@ -91,13 +91,13 @@
 		name="myEEApp"
 		context-root="rhocp-ee">
 
-
+<!--
 	    <application-bnd>
 			<security-role name="EMPLOYEE">
 				  <group name="EMPLOYEE" />
 			</security-role>
 		</application-bnd>
-		
+		-->
     </application>		
 
 
