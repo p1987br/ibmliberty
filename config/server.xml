@@ -54,7 +54,7 @@
     <httpEndpoint id="defaultHttpEndpoint"
 				  host="*"
                   httpPort="8080"
-                  httpsPort="9443" />
+                  httpsPort="443" />
     <!-- end::httpport[] -->
 
 	<!-- tag::application[] - deployed application -->
