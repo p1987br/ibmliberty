@@ -1,19 +1,21 @@
-#FROM websphere-liberty:kernel
+#Dockerimage from websphere-liberty:kernel
+FROM ibmcom/websphere-liberty:kernel-java8-openj9-ubi
 
-FROM websphere-liberty
-#RUN installUtility install adminCenter-1.0 --acceptLicense
-#COPY server.xml /opt/ibm/wlp/usr/servers/defaultServer/
 ENV LICENSE accept
 EXPOSE 8080 9080 9448 9443 9060
 
-COPY --chown=1001:0 app.jar /config/apps/
-COPY --chown=1001:0 server.xml /config/
+# Default server configuration
+COPY --chown=1001:0 config/server.xml /config/
+COPY --chown=1001:0 config/server.env /config/
 
-#TAI Interceptor
-COPY --chown=1001:0 simpleTAI.jar /config/
+# TAI Interceptor LIB deploy
+COPY --chown=1001:0 static/simpleTAI.jar /config/
 
-#WAR app
-#COPY --chown=1001:0 myEEApp.war /config/dropins/
-COPY --chown=1001:0 myEEApp.war /config/apps/
+# JEE app (Servlet, JAXB WAR)
+COPY --chown=1001:0 static/sampleJavaEEApp.war /config/apps/
+COPY --chown=1001:0 static/spring-app.jar /config/apps/
+
+# Default setting for the verbose option
+ARG VERBOSE=true
 
 RUN configure.sh
